@@ -8,8 +8,6 @@ let mousePos = { x: -1000, y: -1000};
 let lastX = -1000;
 let lastY = -1000;
 
-// TODO: Check difference between current and last mouse position, based on difference, increase size of spawned image
-
 function spawnImage(x, y) {
   if (lastX === x && lastY === y) {
     return
@@ -40,10 +38,6 @@ function repeater() {
 document.addEventListener('mousemove', function(e) { 
     mousePos.x = e.pageX;
     mousePos.y = e.pageY;
-
-  if (images.length > 10) {
-    images.shift().remove();
-  }
 });
 
 function removeImage() {
@@ -52,7 +46,7 @@ function removeImage() {
       images.shift().remove();
     }
     removeImage();
-  }, 15);
+  }, 20);
 }
 
 document.addEventListener('DOMContentLoaded', function(event) { 
